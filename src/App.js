@@ -1,52 +1,100 @@
-import React, { useEffect, useState } from "react";
-// import Message from "./Component/Message";
+import React, { useState } from "react";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css';
 
 
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: 'aqua',
+//     },
+
+//     secondary: {
+//       main: 'aquamarine',
+//     }
+//   }
+// })
 
 function App() {
   const [messageList, setMessageList] = useState([]);
   const [message, setMessage] = useState('');
   const [autor, setAutor] = useState('');
 
+
   const addMessage = () => {
     let id = Math.random()
-    setMessageList([...messageList, {
-      text: message,
-      autor: autor,
-      id: id,
-    }])
+    if(message !=='' && autor !=='') {
+      setMessageList([...messageList, {
+        text: message,
+        autor: autor,
+        id: id,
+      }])
+      setMessage('')
+      setAutor('')
+    }
   }
   
-  useEffect(() => {
-    setTimeout(() => {
-      if(messageList.length !== 0) {
-        alert('сообщение отправлено');
-      }
-    }, 1500)
-  }, [messageList]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if(messageList.length !== 0) {
+  //       alert('сообщение отправлено');
+  //     }
+  //   }, 1500)
+  // }, [messageList]);
 
   return (
     <div className="wrapper">
-        <input value={autor} 
+        
+        <TextField
+          style={{
+            backgroundColor: 'aqua',
+            color: 'black',
+            borderRadius: '5px',
+            marginBottom: '30px'
+          }}
+          required
+          id="outlined-required"
+          label="Your name"
+          Value={autor}
+          onChange={(event) => setAutor(event.target.value)}
+
+        />
+
+        {/* <input value={autor} 
           onChange={(event) => setAutor(event.target.value)} 
-          placeholder='Your name'/>
+          placeholder='Your name'/> */}
 
-        <textarea value={message} 
+        <TextField
+        style={{
+          width: '222px',
+          backgroundColor: 'aqua',
+          color: 'black',
+          borderRadius: '5px',
+          marginBottom: '30px',
+        }}
+          id="outlined-textarea"
+          label="Your message..."
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          placeholder="Your message..."
+          multiline
+        />
+        {/* <textarea value={message} 
           onChange={(event) => setMessage(event.target.value)} 
-          placeholder='Your message...'/>
+          placeholder='Your message...'/> */}
 
-        <button onClick={addMessage}>send</button>
+        <Button variant="contained" onClick={addMessage} style={{marginBottom: '20px'}}>Send</Button>
 
         {messageList.map((el) => {
           return(
           <div className="message-wrapper" key={el.id}>
             <p>{el.text}</p>
-            <span>от {el.autor}</span>
+            <span className="from">от {el.autor}</span>
           </div>
         )})}
     </div>
-
   );
 }
 
