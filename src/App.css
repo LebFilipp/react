@@ -1,11 +1,18 @@
-.App {
+.app-component{
+  width: 550px ;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+/* .App {
   text-align: center;
   display: flex;
   justify-content: center;
-}
+} */
 
 .wrapper{
-  margin-top: 50px;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;

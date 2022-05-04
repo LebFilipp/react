@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css';
+import ChatList from "./Component/ChatList";
 
 
 // const theme = createTheme({
@@ -45,6 +46,9 @@ function App() {
   // }, [messageList]);
 
   return (
+  <div className="app-component">
+    <ChatList/>
+
     <div className="wrapper">
         
         <TextField
@@ -95,7 +99,7 @@ function App() {
           </div>
         )})}
     </div>
-  );
+  </div>);
 }
 
 export default App;
