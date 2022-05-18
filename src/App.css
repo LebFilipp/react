@@ -1,12 +1,18 @@
-.App {
+.app-component{
+  width: 550px ;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+/* .App {
   text-align: center;
   display: flex;
   justify-content: center;
-}
+} */
 
 .wrapper{
-  text-align: center;
-  margin-top: 50px;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +48,7 @@ textarea{
   background-color: aquamarine;
   padding: 5px 10px;
   outline: none;
-  width: 165px ;
+  width: 200px ;
   flex-wrap: wrap;
 }
 
@@ -52,7 +58,7 @@ p{
   min-width: 150px;
 }
 
-span{
+.from{
   background-color: darkgray;
   font-size: 12px;
   padding: 0 6px;
