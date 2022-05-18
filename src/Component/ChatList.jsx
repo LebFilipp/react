@@ -2,7 +2,7 @@ import { List, ListItem } from '@mui/material';
 import React, { useState } from "react";
 import './ChatList.css';
 
-const ChatList = () => {
+const ChatList = ( name, id ) => {
   let chatId = Math.random()
 
   const [chatList] = useState([
@@ -20,11 +20,12 @@ const ChatList = () => {
 
   return (
     <div>
-        <List className='list'>
+        <List  className='list'>
           {chatList.map((item) => {
             return(
-              <ListItem className='list-item'>
-                <span key={item.id}>{item.name}</span>
+              <ListItem className='list-item' id={item.id} key={item.id}>
+                <span> {name = item.name}</span>
+                <button>X</button>
               </ListItem>
             )
           })}
