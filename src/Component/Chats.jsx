@@ -19,15 +19,15 @@ const Chats = () => {
     },
   ])
 
-  // function id(array) {
-  //   return array.length ? array[array.length - 1].id + 1 : 0; 
-  // }
+  function id(array) {
+    return array.length ? array[array.length - 1].id + 1 : 0; 
+  }
 
   const addChat = () => {
-    let id = Math.random()
+    // let id = Math.random()
     if (chatName) {
       setChatList( prevState => [...prevState, {
-        id: id,
+        id: id(chatList),
         name: chatName,
       }] )
     }

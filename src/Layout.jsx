@@ -1,15 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import CustomLink from './Component/CustomLink'
 import './Layout.css'
+import Home from './Component/Home'
 
 const Layout = () => {
   return (
     <>
-        <header>
-            <CustomLink to={'/profile'}>PROFILE</CustomLink>
-            <CustomLink to={'/chats'}>CHATS</CustomLink>
-        </header>
+        <Home />
         <main>
             <Outlet />
         </main>
